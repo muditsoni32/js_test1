@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         // Define SSH credentials for connecting to the remote server
-        SSH_CREDENTIALS = credentials('mudit_key')
+        SSH_CREDENTIALS = credentials('mudit_test')
         REMOTE_USER = 'ec2-user'
         REMOTE_HOST = '18.206.147.42'
         REMOTE_PATH = '/app'
