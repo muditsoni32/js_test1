@@ -12,19 +12,19 @@
     "reporter"
   ],
   "author": {
-    "name": "Michael Allen",
-    "email": "michael.lee.allen@gmail.com"
+    "name": "Mudit Soni",
+    "email": "muditsoni32@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/michaelleeallen/jest-junit-reporter.git"
+    "url": "https://github.com/muditsoni32/js_test1.git"
   },
   "license": "MIT",
   "dependencies": {
     "xml": "^1.0.1"
   },
   "devDependencies": {
-    "jest": "^18.1.0",
+    "jest": "^27.0.0", // Updated version
     "libxml-xsd": "^0.5.2"
   },
   "jest": {
