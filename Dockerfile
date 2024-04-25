@@ -9,7 +9,7 @@ COPY package*.json ./
 
 # Install dependencies
 RUN npm install -g node-gyp@latest
-RUN npm install jest
+RUN npm install --save-dev jest
 RUN npm install
 
 # Copy the rest of the application code
