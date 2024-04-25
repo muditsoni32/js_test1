@@ -1,12 +1,17 @@
-# Use Node.js LTS version as base image
-FROM node:lts
+# Stage 1: Build with Python
+FROM python:3.8-slim AS build-stage
 
-# Set the working directory inside the container
-RUN apt-get update && apt-get install -y python3
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
+RUN npm install
+
+# Stage 2: Final image (no Python)
+FROM node:20-alpine  # Adjust Node.js version if needed
+
+WORKDIR /app
+
+COPY --from=build-stage ./node_modules ./node_modules
 
 # Install dependencies
 RUN npm install -g node-gyp@latest
