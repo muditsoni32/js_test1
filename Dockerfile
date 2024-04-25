@@ -6,9 +6,6 @@ WORKDIR /app
 # Copy package.json and package-lock.json files
 COPY package*.json ./
 
-# Install Node.js dependencies
-RUN npm install
-
 # Stage 2: Final image (no Python)
 FROM node:20-alpine AS final-stage
 
@@ -19,6 +16,7 @@ COPY --from=build-stage /app/node_modules ./node_modules
 
 # Install global Node.js dependencies
 RUN npm install -g node-gyp@latest jest
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .
