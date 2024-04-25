@@ -3,20 +3,22 @@ FROM python:3.8-slim AS build-stage
 
 WORKDIR /app
 
+# Copy package.json and package-lock.json files
 COPY package*.json ./
+
+# Install Node.js dependencies
 RUN npm install
 
 # Stage 2: Final image (no Python)
-FROM node:20-alpine  # Adjust Node.js version if needed
+FROM node:20-alpine AS final-stage
 
 WORKDIR /app
 
-COPY --from=build-stage ./node_modules ./node_modules
+# Copy Node.js dependencies from the build-stage
+COPY --from=build-stage /app/node_modules ./node_modules
 
-# Install dependencies
-RUN npm install -g node-gyp@latest
-RUN npm install -g jest
-RUN npm install
+# Install global Node.js dependencies
+RUN npm install -g node-gyp@latest jest
 
 # Copy the rest of the application code
 COPY . .
