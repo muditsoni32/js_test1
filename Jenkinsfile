@@ -30,6 +30,9 @@ pipeline {
                         sh 'npm test'
                     }
                 }
+                
+                // Publish test results using JUnit plugin
+                junit testDataPublishers: [attachments()], testResults: '/app'
             }
         }
         
