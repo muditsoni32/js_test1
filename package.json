@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "jest": "^27.0.0",
-    "libxml-xsd": "^0.5.2"
+    "libxml-xsd": "^0.4.0"
   },
   "jest": {
     "testEnvironment": "node",
