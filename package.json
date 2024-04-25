@@ -24,7 +24,7 @@
     "xml": "^1.0.1"
   },
   "devDependencies": {
-    "jest": "^27.0.0", // Updated version
+    "jest": "^27.0.0",
     "libxml-xsd": "^0.5.2"
   },
   "jest": {
