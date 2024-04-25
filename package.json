@@ -21,8 +21,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "xml": "^1.0.1",
-    "ansi": "^0.2.0" // Here was the issue. Corrected to add the comma after "^1.0.1"
+    "ansi": "^0.2.0",
+    "xml": "^1.0.1"
   },
   "devDependencies": {
     "jest": "^27.0.0",
