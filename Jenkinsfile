@@ -1,6 +1,14 @@
 pipeline {
     agent any
     
+    environment {
+        // Define SSH credentials for connecting to the remote server
+        SSH_CREDENTIALS = credentials('mudit_key')
+        REMOTE_USER = 'ec2-user'
+        REMOTE_HOST = '18.206.147.42'
+        REMOTE_PATH = '/app'
+    }
+    
     stages {
         stage('Build') {
             steps {
@@ -25,17 +33,19 @@ pipeline {
             }
         }
         
-        stage('Generate Report') {
+        stage('Deploy') {
             steps {
-                // Generate JUnit test report
+                // Copy Docker image to remote server
                 script {
-                    docker.image("jest-junit-reporter").inside {
-                        sh 'npm run test:report'
-                    }
+                    sh "docker save jest-junit-reporter | sshpass -p ${SSH_CREDENTIALS} ssh ${REMOTE_USER}@${REMOTE_HOST} 'docker load'"
                 }
                 
-                // Archive JUnit test report
-                junit 'test-report/*.xml'
+                // SSH into remote server and start Docker container
+                script {
+                    sshagent(credentials: ['your-ssh-credentials-id']) {
+                        sh "ssh ${REMOTE_USER}@${REMOTE_HOST} 'docker run -d -p 3000:3000 --name jest-junit-reporter jest-junit-reporter'"
+                    }
+                }
             }
         }
     }
