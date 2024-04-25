@@ -4,6 +4,8 @@ FROM node:lts
 # Set the working directory inside the container
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y python3
+
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
