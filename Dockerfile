@@ -16,6 +16,7 @@ COPY --from=build-stage /app/node_modules ./node_modules
 
 # Install global Node.js dependencies
 RUN npm install -g node-gyp@latest jest
+RUN npm i -D jest-junit-reporter
 RUN npm install
 
 # Copy the rest of the application code
