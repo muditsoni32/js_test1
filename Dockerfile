@@ -3,10 +3,6 @@ FROM nikolaik/python-nodejs:python3.8-nodejs20 AS base
 
 WORKDIR /app
 
-# Copy Python requirements file and install Python dependencies
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-
 # Copy package.json and package-lock.json (or yarn.lock) for Node.js
 COPY package*.json ./
 
