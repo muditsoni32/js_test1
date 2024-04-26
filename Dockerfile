@@ -8,7 +8,7 @@ COPY package*.json ./
 
 # Install Node.js dependencies
 RUN npm install -g node-gyp@latest jest
-RUN npm i -D jest-junit-reporter
+RUN npm install -D jest-junit-reporter
 RUN npm install
 
 # Copy your application code
