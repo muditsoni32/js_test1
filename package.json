@@ -21,13 +21,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "ansi": "^0.3.1", // Ensure this version exists and is compatible
-    "xml": "^1.0.1", // Check latest or more compatible versions
-    "libxml-xsd": "^0.5.0" // Look for alternatives or check if a compatible update exists
+    "ansi": "^0.3.1",
+    "xml": "^1.0.1",
+    "libxml-xsd": "^0.5.0" 
   },
   "devDependencies": {
     "jest": "^27.0.6",
-    "node-gyp": "^9.0.0" // Updated to a version that is likely compatible with Node.js 18
+    "node-gyp": "^9.0.0"
   },
   "jest": {
     "testEnvironment": "node",
