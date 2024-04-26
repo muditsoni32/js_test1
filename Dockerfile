@@ -1,5 +1,5 @@
 # Base image that includes both Node.js and Python
-FROM nikolaik/python-nodejs:python3.8-nodejs14 AS base
+FROM nikolaik/python-nodejs:python3.8-nodejs8 AS base
 
 WORKDIR /app
 
