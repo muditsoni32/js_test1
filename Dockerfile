@@ -9,7 +9,7 @@ COPY package*.json ./
 # Stage 2: Final image (no Python)
 FROM node:20-alpine AS final-stage
 
-WORKDIR /app
+WORKDIR /app/worker
 
 # Copy Node.js dependencies from the build-stage
 COPY --from=build-stage /app/node_modules ./node_modules
